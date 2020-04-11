@@ -7,10 +7,10 @@
   "author": "nonAlgebraic <https://github.com/nonalgebraic/>",
   "license": "MIT",
   "scripts": {
-    "prepare": "snowpack",
-    "babel": "babel src --ignore '**/*.test.tsx' --out-dir lib --extensions .tsx --source-maps",
-    "dev": "concurrently 'yarn babel --watch' 'servor --reload'",
-    "build": "yarn babel && snowpack --optimize --include lib/**/*.js",
+    "prepare": "snowpack --dest public/web_modules",
+    "babel": "babel src --ignore '**/*.test.tsx' --out-dir public/lib --extensions .tsx --source-maps",
+    "dev": "concurrently 'yarn babel --watch' 'servor public --reload'",
+    "build": "yarn babel && yarn snowpack --clean --optimize --include public/lib/**/*.js",
     "test": "jest",
     "typecheck": "tsc",
     "lint": "eslint src/**/*.tsx"
@@ -89,6 +89,11 @@
     "collectCoverageFrom": [
       "src/**/*.tsx",
       "!src/index.tsx"
+    ]
+  },
+  "snowpack": {
+    "webDependencies": [
+      "normalize.css/normalize.css"
     ]
   },
   "dependencies": {

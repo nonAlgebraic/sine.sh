@@ -1,5 +1,9 @@
 node_modules
+public/lib
+public/web_modules
 lib
 coverage
 web_modules
 yarn-error.log
+
+.now

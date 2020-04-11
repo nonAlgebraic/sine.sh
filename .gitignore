@@ -5,5 +5,5 @@ lib
 coverage
 web_modules
 yarn-error.log
-
+.vscode
 .now
